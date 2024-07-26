@@ -1,6 +1,9 @@
 # jiit-planner
 Quickly view your upcoming events(lectures, tutorial, etc) at JIIT
 
+## Try it out (in beta)
+Visit https://planner.codelif.in/B5 (here replace B5 with your batch) 
+
 ## Development deployment
 ```sh
 poetry run flask --app jiit_planner run

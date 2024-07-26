@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "jiit-planner"
+version = "0.1.0"
+description = "Quickly view your upcoming events(lectures, tutorial, etc) at JIIT"
+authors = ["Harsh Sharma <harsh@codelif.in>"]
+license = "GPLv3 License"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+flask = "^3.0.3"
+jiit-tt-parser = {git = "https://github.com/codelif/jiit-tt-parser", branch="main"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

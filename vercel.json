@@ -4,7 +4,7 @@
   ],
   "builds": [
     {
-      "src": "./jiit_planner/wsgi.py",
+      "src": "./jiit_planner/index.py",
       "use": "@vercel/python"
     }
   ],

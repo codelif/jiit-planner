@@ -14,3 +14,5 @@ poetry run flask --app jiit_planner run
  - [ ] Add support for multiple semesters
  - [ ] Fix [`jiit-tt-parser`](https://github.com/codelif/jiit-tt-parser)
 
+#### Also checkout the sister project: [`codelif/jiit-tt-parser`](https://github.com/codelif/jiit-tt-parser)
+That project contains the actual backend code. `jiit-planner` is a frontend to it.

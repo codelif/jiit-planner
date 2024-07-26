@@ -12,6 +12,7 @@ def home():
 
 
 @router.get("/planner/<batch>")
+@router.get("/<batch>")
 def planner(batch):
     evs = filter_events(batch)
 

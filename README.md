@@ -12,6 +12,7 @@ poetry run flask --app jiit_planner run
 ## Roadmap
  - [ ] Make the UI uglier
  - [ ] Add support for multiple semesters
+ - [ ] Add support for multiple streams (BCA, BBA, etc)
  - [ ] Fix [`jiit-tt-parser`](https://github.com/codelif/jiit-tt-parser)
 
 #### Also checkout the sister project: [`codelif/jiit-tt-parser`](https://github.com/codelif/jiit-tt-parser)

@@ -21,7 +21,10 @@ def planner():
         day = datetime.date.today().strftime("%A")
     print(batch, day)
     events = filter_events(batch, day)
+    
 
+    if (batch is None):
+        batch = ''
     return render_template("index.html", events=events, day=day.capitalize(), batch=batch)
 
 
@@ -38,6 +41,9 @@ def jsonify_events(events: List[Event]):
         
 
 def filter_events(batch: str, day: str):
+    if batch is None:
+        return []
+
     sheet, r, c = load_worksheet(get_cache_file("sem1.xlsx"))
     evs = parse_events(sheet, r, c)
 

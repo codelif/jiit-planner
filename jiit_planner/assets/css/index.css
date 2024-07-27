@@ -134,7 +134,7 @@ e) {
   margin: 0.25rem 0;
 }
 
-div[slot="header"] {
+div[slot="header"], .card-basic {
 
   font-size: 2rem;
   font-weight: bold;

@@ -1,12 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="sl-theme-dark">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Planner</title>
-    <link href="css/style.css" rel="stylesheet">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/themes/light.css" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/themes/dark.css" />
+    
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/shoelace-autoloader.js"></script>
   </head>
   <body>
-    <h1>Fucked off</h1>
+    <div class="container">
+      <header id="navbar">
+        <div class="brand">
+          <h2>JIIT Planner</h2>
+        </div>
+      </header>
+      <main id="content">
+        <div>
+          {% for ev in events %}
+          <sl-card class="card-header">
+            <div slot="header">
+              {% if ev.event_type == "L" %}
+                Lecture
+              {% elif ev.event_type == "P" %}
+                Practical
+              {% else %}
+                Tutorial
+              {% endif %}
+              <!-- <sl-icon-button name="gear" label="Settings"></sl-icon-button> -->
+            </div>
+
+            <p style="font-size: 1.3rem">{{ ev.day }}</p>
+            <br>
+            <p>
+              <span class="type">Subject:</span>
+              {% if ev.event %}
+              {{ ev.event }} ({{ ev.eventcode }})
+              {% else %}
+              {{ ev.eventcode }}
+              {% endif %}
+            </p>
+            <p><span class="type">Batches:</span> {{ ev.batches }}</p>
+            <p><span class="type">Time:</span> {{ ev.period }}</p>
+            <p><span class="type">Venue:</span> {{ ev.classroom }}</p>
+          </sl-card>
+          {% endfor %}
+        </div>
+      </main>
+      <footer id="footer">
+        <p>Made without React by Harsh Sharma</p>
+        <p>or with Vue, Svelte, or other redundant tech.</p>
+      </footer>
+    </div>
   </body>
 </html>

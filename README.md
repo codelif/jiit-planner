@@ -5,7 +5,9 @@ Quickly view your upcoming events(lectures, tutorial, etc) at JIIT
 Visit https://planner.codelif.in/B5 (here replace B5 with your batch) 
 
 ## Development deployment
+Clone this repository and cd into it then enter the following commands.
 ```sh
+poetry install
 poetry run flask --app jiit_planner run
 ```
 

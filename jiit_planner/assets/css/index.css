@@ -74,7 +74,7 @@ sl-menu-item > a {
 }
 
 #footer {
-  /* padding-bottom: 10px; */
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -143,3 +143,27 @@ div[slot="header"] {
 .type {
   font-weight: bold;
 }
+
+  .label-on-left {
+    --label-width: 3.75rem;
+    --gap-width: 1rem;
+  }
+
+  .label-on-left + .label-on-left {
+    margin-top: var(--sl-spacing-medium);
+  }
+
+  .label-on-left::part(form-control) {
+    display: grid;
+    grid: auto / var(--label-width) 1fr;
+    gap: var(--sl-spacing-3x-small) var(--gap-width);
+    align-items: center;
+  }
+
+  .label-on-left::part(form-control-label) {
+    text-align: right;
+  }
+
+  .label-on-left::part(form-control-help-text) {
+    grid-column-start: 2;
+  }

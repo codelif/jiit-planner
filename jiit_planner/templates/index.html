@@ -25,6 +25,22 @@
       </header>
       <main id="content">
         <div>
+          <sl-card class="card-header">
+            <div slot="header">
+              Showing Planner for {{ day }}
+            </div>
+            <sl-select class="label-on-left" value="{{ day }}" label="Day:" style="margin-bottom: 1rem;">
+              <sl-option value="Monday">Monday</sl-option>
+              <sl-option value="Tuesday">Tuesday</sl-option>
+              <sl-option value="Wednesday">Wednesday</sl-option>
+              <sl-option value="Thursday">Thursday</sl-option>
+              <sl-option value="Friday">Friday</sl-option>
+              <sl-option value="Saturday">Saturday</sl-option>
+              <sl-option value="Sunday">Sunday</sl-option>
+            </sl-select>
+            <sl-input class="label-on-left" label="Batch:" style="margin-bottom: 1rem;" value="{{ batch }}"></sl-input>
+            <sl-button >Button</sl-button>
+          </sl-card>
           {% for ev in events %}
           <sl-card class="card-header">
             <div slot="header">
@@ -37,9 +53,7 @@
               {% endif %}
               <!-- <sl-icon-button name="gear" label="Settings"></sl-icon-button> -->
             </div>
-
-            <p style="font-size: 1.3rem">{{ ev.day }}</p>
-            <br>
+            <!-- <br> -->
             <p>
               <span class="type">Subject:</span>
               {% if ev.event %}
@@ -49,6 +63,7 @@
               {% endif %}
             </p>
             <p><span class="type">Batches:</span> {{ ev.batches }}</p>
+            <p><span class="type">Day:</span> {{ ev.day }}</p>
             <p><span class="type">Time:</span> {{ ev.period }}</p>
             <p><span class="type">Venue:</span> {{ ev.classroom }}</p>
           </sl-card>
@@ -56,9 +71,11 @@
         </div>
       </main>
       <footer id="footer">
-        <p>Made without React by Harsh Sharma</p>
-        <p>or with Vue, Svelte, or other redundant tech.</p>
+        <p>Made with ❤️ by Harsh Sharma</p>
       </footer>
     </div>
+    <script>
+      
+    </script>
   </body>
 </html>

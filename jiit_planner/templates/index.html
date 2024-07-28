@@ -1,34 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" class="sl-theme-dark">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Planner</title>
     <!-- <link href="css/style.css" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/themes/light.css" /> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/themes/dark.css" />
-    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/themes/dark.css"
+    />
+
     <link
       href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap"
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
   </head>
   <body>
     <div class="container">
-      <header id="navbar">
-        <div class="brand">
-          <h2>JIIT Planner</h2>
+      <nav>
+        <div class="logo">
+          <img src="logo.svg" alt="Logo Image" />
         </div>
-      </header>
+        <div class="hamburger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">B.Tech</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
       <main id="content">
         <div>
           <sl-card class="card-header">
-            <div slot="header">
-              Showing Planner for {{ day }}
-            </div>
-            <sl-select id="day" class="label-on-left" value="{{ day }}" label="Day:" style="margin-bottom: 1rem;">
+            <div slot="header">Showing Planner for {{ day }}</div>
+            <sl-select
+              id="day"
+              class="label-on-left"
+              value="{{ day }}"
+              label="Day:"
+              style="margin-bottom: 1rem"
+            >
               <sl-option value="Monday">Monday</sl-option>
               <sl-option value="Tuesday">Tuesday</sl-option>
               <sl-option value="Wednesday">Wednesday</sl-option>
@@ -37,39 +59,34 @@
               <sl-option value="Saturday">Saturday</sl-option>
               <sl-option value="Sunday">Sunday</sl-option>
             </sl-select>
-            <sl-input id="batch_input" class="label-on-left" label="Batch:" style="margin-bottom: 1rem;" value="{{ batch }}"></sl-input>
+            <sl-input
+              id="batch_input"
+              class="label-on-left"
+              label="Batch:"
+              style="margin-bottom: 1rem"
+              value="{{ batch }}"
+            ></sl-input>
             <sl-button onclick="batch_change();">Go!</sl-button>
             <sl-button onclick="today()">Today</sl-button>
           </sl-card>
           {% if batch == "" %}
-          <sl-card class="card-basic">
-            Please enter a Batch first.
-          </sl-card>
+          <sl-card class="card-basic"> Please enter a Batch first. </sl-card>
           {% elif events|length == 0 %}
           <sl-card class="card-basic">
             Batch '{{ batch }}' as no classes on {{ day }}.
           </sl-card>
-          {% endif %}
-          {% for ev in events %}
+          {% endif %} {% for ev in events %}
           <sl-card class="card-header">
             <div slot="header">
-              {% if ev.event_type == "L" %}
-                Lecture
-              {% elif ev.event_type == "P" %}
-                Practical
-              {% else %}
-                Tutorial
-              {% endif %}
+              {% if ev.event_type == "L" %} Lecture {% elif ev.event_type == "P"
+              %} Practical {% else %} Tutorial {% endif %}
               <!-- <sl-icon-button name="gear" label="Settings"></sl-icon-button> -->
             </div>
             <!-- <br> -->
             <p>
               <span class="type">Subject:</span>
-              {% if ev.event %}
-              {{ ev.event }} ({{ ev.eventcode }})
-              {% else %}
-              {{ ev.eventcode }}
-              {% endif %}
+              {% if ev.event %} {{ ev.event }} ({{ ev.eventcode }}) {% else %}
+              {{ ev.eventcode }} {% endif %}
             </p>
             <p><span class="type">Batches:</span> {{ ev.batches }}</p>
             <p><span class="type">Day:</span> {{ ev.day }}</p>
@@ -80,54 +97,78 @@
         </div>
       </main>
       <footer id="footer">
-        <p>Made with ❤️ by Harsh Sharma • <span><a href="https://github.com/codelif/jiit-planner">View Source Code</a></span></p>
+        <p>
+          Made with ❤️ by Harsh Sharma •
+          <span
+            ><a href="https://github.com/codelif/jiit-planner"
+              >View Source Code</a
+            ></span
+          >
+        </p>
       </footer>
     </div>
     <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+      const links = document.querySelectorAll(".nav-links li");
+
+      hamburger.addEventListener("click", () => {
+        //Animate Links
+        navLinks.classList.toggle("open");
+        links.forEach((link) => {
+          link.classList.toggle("fade");
+        });
+
+        //Hamburger Animation
+        hamburger.classList.toggle("toggle");
+      });
+
       let params = new URL(document.location.toString()).searchParams;
       let batch = params.get("b");
       let day = params.get("day");
 
-      if (batch == null){
+      if (batch == null) {
         let last_batch = get_last_batch();
-        if (last_batch != null){
-          let loc = `/batch?b=${last_batch}`
-          if (day != null){
-            loc += `&day=${day}`
+        if (last_batch != null) {
+          let loc = `/batch?b=${last_batch}`;
+          if (day != null) {
+            loc += `&day=${day}`;
           }
           location.href = loc;
         }
-      }else {
+      } else {
         set_last_batch(batch);
       }
-      
-      function batch_change(){
-        let b = document.getElementById("batch_input")
-        let d = document.getElementById("day")
-        if (b.value != "None"){
+
+      function batch_change() {
+        let b = document.getElementById("batch_input");
+        let d = document.getElementById("day");
+        if (b.value != "None") {
           set_last_batch(b.value);
         }
         let loc = `/batch?b=${b.value}&day=${d.value}`;
         location.href = loc;
       }
-      function today(){
-        let b = document.getElementById("batch_input")
-        if (b.value != "None"){
+      function today() {
+        let b = document.getElementById("batch_input");
+        if (b.value != "None") {
           set_last_batch(b.value);
         }
         let loc = `/batch?b=${b.value}`;
         location.href = loc;
       }
 
-      function get_last_batch(){
-        return localStorage.getItem("batch")
+      function get_last_batch() {
+        return localStorage.getItem("batch");
       }
 
-      function set_last_batch(batch){
+      function set_last_batch(batch) {
         localStorage.setItem("batch", batch);
       }
-
     </script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/shoelace-autoloader.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/shoelace-autoloader.js"
+    ></script>
   </body>
 </html>

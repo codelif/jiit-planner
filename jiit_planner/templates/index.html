@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Planner</title>
-    <!-- <link href="css/style.css" rel="stylesheet"> -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/themes/light.css" /> -->
+    <title>JIIT Planner</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/themes/dark.css"
@@ -20,12 +18,43 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/index.css') }}"
     />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ url_for('static',filename='public/apple-touch-icon.png') }}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static',filename='public/apple-touch-icon.png') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ url_for('static', filename='public/favicon-32x32.png') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{{ url_for('static', filename='public/favicon-16x16.png') }}"
+    />
+    <link
+      rel=""
+      href="{{ url_for('static', filename='public/site.webmanifest') }}"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='public/favicon.ico') }}"
+    />
   </head>
   <body>
     <div class="container">
       <nav>
         <div class="logo">
-          <img src="logo.svg" alt="Logo Image" />
+          <img src="../assets/public/favicon-32x32.png" alt="Logo Image" />
         </div>
         <div class="hamburger">
           <div class="line1"></div>

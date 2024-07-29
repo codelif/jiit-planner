@@ -20,13 +20,21 @@ def planner():
     if (day is None):
         day = datetime.date.today().strftime("%A")
     print(batch, day)
-    events = filter_events(batch, day)
+    events, batches = filter_events(batch, day)
     
 
     if (batch is None):
         batch = ''
-    return render_template("index.html", events=events, day=day.capitalize(), batch=batch)
 
+    return render_template("index.html", events=events, day=day.capitalize(), batch=batch, batches=batches)
+
+
+def split_on_number(key: str):
+    for i,k in enumerate(key):
+        if k.isdigit():
+            return key[:i], int(key[i:])
+
+    return key,0
 
 def jsonify_events(events: List[Event]):
     {"batches": ["B5"],
@@ -41,16 +49,16 @@ def jsonify_events(events: List[Event]):
         
 
 def filter_events(batch: str, day: str):
-    if batch is None:
-        return []
 
     sheet, r, c = load_worksheet(get_cache_file("sem1.xlsx"))
     evs = parse_events(sheet, r, c)
 
     filtered_evs = []
+    batches = set()
 
     for ev in evs:
-        if (batch is not None) and (batch.lower() not in [i.lower() for i in ev.batches]):
+        batches = batches.union(ev.batches)
+        if (batch is None) or (batch not in ev.batches):
             continue
 
         if (day is not None) and (not ev.day.lower() == day.lower()):
@@ -58,4 +66,4 @@ def filter_events(batch: str, day: str):
         
         filtered_evs.append(ev)
 
-    return filtered_evs
+    return (filtered_evs, sorted(batches, key=split_on_number))

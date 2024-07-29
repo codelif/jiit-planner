@@ -37,13 +37,17 @@
               <sl-option value="Saturday">Saturday</sl-option>
               <sl-option value="Sunday">Sunday</sl-option>
             </sl-select>
-            <sl-input id="batch_input" class="label-on-left" label="Batch:" style="margin-bottom: 1rem;" value="{{ batch }}"></sl-input>
+            <sl-select id="batch_input" class="label-on-left" label="Batch:" style="margin-bottom: 1rem;" value="{{ batch }}">
+              {% for b in batches %}
+                <sl-option value="{{ b }}">{{ b }}</sl-option>
+              {% endfor %}
+            </sl-select>
             <sl-button onclick="batch_change();">Go!</sl-button>
             <sl-button onclick="today()">Today</sl-button>
           </sl-card>
           {% if batch == "" %}
           <sl-card class="card-basic">
-            Please enter a Batch first.
+            Please select a Batch first.
           </sl-card>
           {% elif events|length == 0 %}
           <sl-card class="card-basic">

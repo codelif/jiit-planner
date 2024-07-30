@@ -87,7 +87,18 @@ sl-menu-item > a {
   color: gray;
 }
 
+.card-container{
+  min-width: 55rem;
+  display: flex;
+  flex-direction: column;
+}
+
+
 @media (max-width: 55rem) {
+  .card-container{
+    min-width: unset;
+  }
+
   /* .container { */
   /*   grid-template-areas: */
   /*     "navbar" */

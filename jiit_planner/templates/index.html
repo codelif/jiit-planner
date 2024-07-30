@@ -23,7 +23,7 @@
         </div>
       </header>
       <main id="content">
-        <div>
+        <div class="card-container">
           <sl-card class="card-header">
             <div slot="header">
               Showing Planner for {{ day }}
@@ -76,6 +76,7 @@
               {% endif %}
             </p>
             <p><span class="type">Batches:</span> {{ ev.batches }}</p>
+            <p><span class="type">Faculty:</span> {{ ev.lecturer }}</p>
             <p><span class="type">Day:</span> {{ ev.day }}</p>
             <p><span class="type">Time:</span> {{ ev.period }}</p>
             <p><span class="type">Venue:</span> {{ ev.classroom }}</p>

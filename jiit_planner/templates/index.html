@@ -46,23 +46,164 @@
     />
   </head>
   <body>
-      <nav>
-        <div class="logo">
-          <img src="../assets/public/favicon-32x32.png" alt="Logo Image" />
+    <nav>
+      <div class="logo">
+        <img src="../assets/public/favicon-32x32.png" alt="Logo Image" />
+      </div>
+      <div class="hamburger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="dropdown-wrapper">
+        <label for="dropdown1" class="dropdown-label">Select Branch: </label>
+        <select id="dropdown1" class="dropdown">
+          <option value="" class="make">Select Branch</option>
+          <option value="" class="make">Branch 1</option>
+          <option value="" class="make">Branch 2</option>
+          <option value="" class="make">Branch 3</option>
+        </select>
+      </div>
+      <div class="dropdown-wrapper">
+        <label for="dropdown2" class="dropdown-label"
+          >Select Day &nbsp;&nbsp;&nbsp;&nbsp;</label
+        >
+        <select id="dropdown2" class="dropdown">
+          <option value="" class="make">Select Day</option>
+          <option value="monday" class="make">Monday</option>
+          <option value="tuesday" class="make">Tuesday</option>
+          <option value="wednesday" class="make">Wednesday</option>
+        </select>
+      </div>
+      <div class="dropdown-wrapper">
+        <label for="dropdown3" class="dropdown-label"
+          >Select Batch: &nbsp;</label
+        >
+        <select id="dropdown3" class="dropdown">
+          <option value="" class="make">Select Batch</option>
+          <option value="morning" class="make">Morning</option>
+          <option value="afternoon" class="make">Afternoon</option>
+          <option value="evening" class="make">Evening</option>
+        </select>
+      </div>
+      <div>
+        <button type="button" class="bubbly-button">Check For Day</button>
+      </div>
+    </div>
+    <div class="ag-format-container">
+      <div class="ag-courses_box">
+        <div class="ag-courses_item">
+          <a class="ag-courses-item_link">
+            <div class="ag-courses-item_bg"></div>
+
+            <div class="ag-courses-item_title">
+              UI/Web&amp;Graph design for teenagers 11-17&#160;years old
+            </div>
+            <div class="ag-courses-item_date-box">
+              Hall:
+              <span class="ag-courses-item_date">LT-4</span>
+            </div>
+            <div class="ag-courses-item_date-box">
+              Start:
+              <span class="ag-courses-item_date"> Time </span>
+            </div>
+          </a>
         </div>
-        <div class="hamburger">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
+
+        <div class="ag-courses_item">
+          <a class="ag-courses-item_link">
+            <div class="ag-courses-item_bg"></div>
+
+            <div class="ag-courses-item_title">
+              UX/UI Web-Design&#160;+ Mobile Design
+            </div>
+            <div class="ag-courses-item_date-box">
+              Hall:
+              <span class="ag-courses-item_date">LT-4</span>
+            </div>
+            <div class="ag-courses-item_date-box">
+              Start:
+              <span class="ag-courses-item_date"> Time </span>
+            </div>
+          </a>
         </div>
-        <ul class="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">B.Tech</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </nav>
+
+        <div class="ag-courses_item">
+          <a class="ag-courses-item_link">
+            <div class="ag-courses-item_bg"></div>
+
+            <div class="ag-courses-item_title">
+              Annual package "Product+UX/UI+Graph designer&#160;2022"
+            </div>
+            <div class="ag-courses-item_date-box">
+              Hall:
+              <span class="ag-courses-item_date">LT-4</span>
+            </div>
+            <div class="ag-courses-item_date-box">
+              Start:
+              <span class="ag-courses-item_date"> Time </span>
+            </div>
+          </a>
+        </div>
+
+        <div class="ag-courses_item">
+          <a class="ag-courses-item_link">
+            <div class="ag-courses-item_bg"></div>
+
+            <div class="ag-courses-item_title">Graphic Design</div>
+            <div class="ag-courses-item_date-box">
+              Hall:
+              <span class="ag-courses-item_date">LT-4</span>
+            </div>
+            <div class="ag-courses-item_date-box">
+              Start:
+              <span class="ag-courses-item_date"> Time </span>
+            </div>
+          </a>
+        </div>
+
+        <div class="ag-courses_item">
+          <a class="ag-courses-item_link">
+            <div class="ag-courses-item_bg"></div>
+
+            <div class="ag-courses-item_title">Motion Design</div>
+            <div class="ag-courses-item_date-box">
+              Hall:
+              <span class="ag-courses-item_date">LT-4</span>
+            </div>
+            <div class="ag-courses-item_date-box">
+              Start:
+              <span class="ag-courses-item_date"> Time </span>
+            </div>
+          </a>
+        </div>
+
+        <div class="ag-courses_item">
+          <a class="ag-courses-item_link">
+            <div class="ag-courses-item_bg"></div>
+
+            <div class="ag-courses-item_title">
+              Front-end development&#160;+ jQuery&#160;+ CMS
+            </div>
+            <div class="ag-courses-item_date-box">
+              Hall:
+              <span class="ag-courses-item_date">LT-4</span>
+            </div>
+            <div class="ag-courses-item_date-box">
+              Start:
+              <span class="ag-courses-item_date"> Time </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
     <script src="../assets/js/main.js">
     </script>
   </body>

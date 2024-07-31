@@ -444,3 +444,19 @@ nav {
     font-size: 16px;
   }
 }
+
+/*This is For Footer*/
+
+#footer {
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+#footer > p {
+  text-align: center;
+}
+#footer > p:last-child {
+  font-size: 0.8rem;
+  color: gray;
+}

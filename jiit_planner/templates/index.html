@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>JIIT Planner</title>
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap"
-      rel="stylesheet"
-    />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -38,7 +34,11 @@
       type="image/x-icon"
       href="{{ url_for('static', filename='public/favicon.ico') }}"
     />
-    <link rel="stylesheet" href="../assets/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+      type="text/css"
+    />
   </head>
   <body>
     <nav>

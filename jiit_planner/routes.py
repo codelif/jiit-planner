@@ -14,19 +14,22 @@ def home():
 
 @router.get("/batch", strict_slashes=False)
 def planner():
-    batch = request.args.get("b")
+    batch = request.args.get("bt")
     day = request.args.get("day")
+    branch = request.args.get("br")
     
     if (day is None):
         day = datetime.date.today().strftime("%A")
-    print(batch, day)
-    events, batches = filter_events(batch, day)
-    
+
+
+    events, batches = filter_events(branch, batch, day)
+    branches = {"btech-sem1":"B.Tech Semester 1", "bca-sem1": "BCA Semester 1", "bca-sem3": "BCA Semester 3"}
+
 
     if (batch is None):
         batch = ''
 
-    return render_template("index.html", events=events, day=day.capitalize(), batch=batch, batches=batches)
+    return render_template("index.html", events=events, day=day.capitalize(), batch=batch, batches=batches, branches=branches)
 
 
 def split_on_number(key: str):
@@ -48,11 +51,17 @@ def jsonify_events(events: List[Event]):
         ...
         
 
-def filter_events(batch: str, day: str):
+def filter_events(branch: str, batch: str, day: str):
 
-    sheet, r, c = load_worksheet(get_cache_file("sem1.xlsx"))
+    branches = {"btech-sem1":"sem1.xlsx", "bca-sem1": "bca_sem1.xlsx", "bca-sem3": "bca_sem3.xlsx"}
+    branch_xl = branches.get(branch)
+    
+    if not branch_xl:
+        return [], []
+
+    sheet, r, c = load_worksheet(get_cache_file(branch_xl))
     evs = parse_events(sheet, r, c)
-
+    
     filtered_evs = []
     batches = set()
 

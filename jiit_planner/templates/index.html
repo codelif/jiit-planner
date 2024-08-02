@@ -28,7 +28,13 @@
             <div slot="header">
               Showing Planner for {{ day }}
             </div>
-            <sl-select id="day" class="label-on-left" value="{{ day }}" label="Day:" style="margin-bottom: 1rem;">
+            <sl-select id="branch" class="label-on-left" label="Branch:" placeholder="Select Branch" style="margin-bottom: 1rem;">
+              {% for branch_code, branch_name in branches.items() %}
+                <sl-option value="{{ branch_code }}">{{ branch_name }}</sl-option>
+              {% endfor %}
+            </sl-select>
+            <hr />
+            <sl-select id="day" class="label-on-left" value="{{ day }}" label="Day:" style="margin-top: 1rem; margin-bottom: 1rem;">
               <sl-option value="Monday">Monday</sl-option>
               <sl-option value="Tuesday">Tuesday</sl-option>
               <sl-option value="Wednesday">Wednesday</sl-option>
@@ -37,7 +43,7 @@
               <sl-option value="Saturday">Saturday</sl-option>
               <sl-option value="Sunday">Sunday</sl-option>
             </sl-select>
-            <sl-select id="batch_input" class="label-on-left" label="Batch:" style="margin-bottom: 1rem;" value="{{ batch }}">
+            <sl-select id="batch_input" class="label-on-left" label="Batch:" placeholder="Select Batch" style="margin-bottom: 1rem;" value="{{ batch }}">
               {% for b in batches %}
                 <sl-option value="{{ b }}">{{ b }}</sl-option>
               {% endfor %}
@@ -90,19 +96,51 @@
     </div>
     <script>
       let params = new URL(document.location.toString()).searchParams;
-      let batch = params.get("b");
-      let day = params.get("day");
+      let up = params.get("b");
+      
+      if (up != null){
+        localStorage.removeItem("batch");
+        localStorage.removeItem("branch");
+        location.href = "/";
+      }
 
-      if (batch == null){
+
+      let batch = params.get("bt");
+      let day = params.get("day");  
+      let br = params.get("br")
+      
+      const branch = document.getElementById("branch");
+      if (br != null){
+        branch.value = br;
+      }
+      branch.addEventListener('sl-change', event => {
+         localStorage.removeItem("batch");
+        set_last_branch(branch.value);
+        location.href = "/batch?br=" + branch.value;
+      });
+  
+      if (br == null){
+        let last_branch = get_last_branch();
+        console.log(last_branch);
         let last_batch = get_last_batch();
-        if (last_batch != null){
-          let loc = `/batch?b=${last_batch}`
-          if (day != null){
-            loc += `&day=${day}`
+        console.log(last_batch);
+        if (last_branch != null){
+          let loc = `/batch?br=${last_branch}`
+          if (last_batch != null){
+            loc += "&bt=" + last_batch; 
           }
+
+          if (day != null){
+            loc += "&day=" + day;
+          }
+
           location.href = loc;
         }
       }else {
+        set_last_branch(br);
+      }
+
+      if (batch != null){
         set_last_batch(batch);
       }
       
@@ -112,7 +150,7 @@
         if (b.value != "None"){
           set_last_batch(b.value);
         }
-        let loc = `/batch?b=${b.value}&day=${d.value}`;
+        let loc = `/batch?br=${branch.value}&bt=${b.value}&day=${d.value}`;
         location.href = loc;
       }
       function today(){
@@ -120,7 +158,7 @@
         if (b.value != "None"){
           set_last_batch(b.value);
         }
-        let loc = `/batch?b=${b.value}`;
+        let loc = `/batch?br=${branch.value}&bt=${b.value}`;
         location.href = loc;
       }
 
@@ -132,6 +170,13 @@
         localStorage.setItem("batch", batch);
       }
 
+      function get_last_branch(){
+        return localStorage.getItem("branch")
+      }
+
+      function set_last_branch(batch){
+        localStorage.setItem("branch", batch);
+      }
     </script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/shoelace-autoloader.js"></script>
   </body>

@@ -329,7 +329,7 @@ files = [
 
 [[package]]
 name = "jiit-tt-parser"
-version = "0.1.1"
+version = "0.2.0"
 description = "Parse JIIT Time Table Spreadsheets in Python"
 optional = false
 python-versions = "^3.9"
@@ -345,7 +345,7 @@ xls2xlsx = "^0.2.0"
 type = "git"
 url = "https://github.com/codelif/jiit-tt-parser"
 reference = "main"
-resolved_reference = "d51d74e6051a67428f730b7758b102c20ac9ef97"
+resolved_reference = "f5895d77370094f291b9f12d90d304a4ab2e4a7f"
 
 [[package]]
 name = "jinja2"

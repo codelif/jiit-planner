@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "jiit-planner"
-version = "0.2.0"
+version = "0.2.1"
 description = "Quickly view your upcoming events(lectures, tutorial, etc) at JIIT"
 authors = ["Harsh Sharma <harsh@codelif.in>"]
 license = "GPLv3 License"

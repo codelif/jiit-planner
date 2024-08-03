@@ -53,7 +53,7 @@ def jsonify_events(events: List[Event]):
 
 def filter_events(branch: str, batch: str, day: str):
 
-    branches = {"btech-sem1":"sem1.xlsx", "bca-sem1": "bca_sem1.xlsx", "bca-sem3": "bca_sem3.xlsx"}
+    branches = {"btech-sem1":"sem1.xlsx", "bca-sem1": "bca_sem1_new.xlsx", "bca-sem3": "bca_sem1_new.xlsx"}
     branch_xl = branches.get(branch)
     
     if not branch_xl:

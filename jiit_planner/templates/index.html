@@ -63,12 +63,14 @@
           {% for ev in events %}
           <sl-card class="card-header">
             <div slot="header">
-              {% if ev.event_type == "L" %}
-                Lecture
+              {% if ev.event_type == "T" %}
+                Tutorial
               {% elif ev.event_type == "P" %}
                 Practical
+              {% elif ev.event_type == "TALK" %}
+                Talk
               {% else %}
-                Tutorial
+                Lecture
               {% endif %}
               <!-- <sl-icon-button name="gear" label="Settings"></sl-icon-button> -->
             </div>

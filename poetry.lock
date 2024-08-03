@@ -345,7 +345,7 @@ xls2xlsx = "^0.2.0"
 type = "git"
 url = "https://github.com/codelif/jiit-tt-parser"
 reference = "main"
-resolved_reference = "f5895d77370094f291b9f12d90d304a4ab2e4a7f"
+resolved_reference = "2bf8b056ea7a9eaa0a192eb2389dffeb36f59363"
 
 [[package]]
 name = "jinja2"

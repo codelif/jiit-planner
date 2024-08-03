@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JIIT Planner</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ url_for('static',filename='public/apple-touch-icon.png') }}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static',filename='public/apple-touch-icon.png') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ url_for('static', filename='public/favicon-32x32.png') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{{ url_for('static', filename='public/favicon-16x16.png') }}"
+    />
+    <link
+      rel=""
+      href="{{ url_for('static', filename='public/site.webmanifest') }}"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='public/favicon.ico') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/about.css') }}"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="../assets/public/favicon-32x32.png" alt="Logo Image" />
+      </div>
+      <div class="hamburger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="">Home</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="mailto:harsh@codelif.in?cc=john.rambo.9901@gmail.com&subject=Facing%Issue">Contact Us</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>

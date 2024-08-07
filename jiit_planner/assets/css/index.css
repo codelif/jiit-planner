@@ -11,6 +11,9 @@ body {
   background-color: black;
   color: white;
 }
+
+/* Nav Starts Here*/
+
 nav {
   height: 6rem;
   width: 100vw;
@@ -152,50 +155,70 @@ nav {
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
+/*Navigation Ends Here*/
+
 /* This is for the dropdown menu */
 
 .container {
-  display: flex;
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 75vh;
   background-color: rgba(20, 182, 222, 0.5);
-  padding: 100px;
+  padding: 20px; /* Adjusted padding */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(165, 31, 31, 0.1);
   flex-direction: column;
 }
+
 .dropdown-wrapper {
   margin: 10px;
   text-align: center;
 }
+
 .dropdown {
-  padding: 100px;
-  width: 500px; /* Increased width from 220px to 300px */
+  padding: 12.5px; /* Increased padding by 25% */
+  width: 275px; /* Increased width by 25% */
+  height: auto;
   border: 2px solid #1e90ff;
   border-radius: 25px;
   background-color: #fff;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1.25rem; /* Increased font size by 25% */
   color: #1e90ff;
+  -webkit-transition: all 1.5s ease; /* Chrome, Safari */
+  -moz-transition: all 1.5s ease; /* Firefox */
+  -o-transition: all 1.5s ease; /* Opera */
   transition: all 1.5s ease;
   text-align: center; /* Center align text */
+  -moz-appearance: none; /* Remove default dropdown arrow for consistency */
+  -webkit-appearance: none; /* Remove default dropdown arrow for Webkit */
+  appearance: none; /* Remove default dropdown arrow for Firefox */
 }
+
 .dropdown:hover {
   background-color: #1e90ff;
   color: #fff;
   border: 2px solid #fff;
 }
+
 .dropdown-label {
   margin-bottom: 5px;
   font-weight: bold;
   color: white;
-  font-size: 18px;
+  font-size: 22.5px; /* Increased font size by 25% */
 }
+
 .dropdown option {
-  padding: 10px;
+  padding: 12.5px; /* Increased padding by 25% */
   text-align: center; /* Center align text inside options */
+  font-size: 1.25rem; /* Increased font size by 25% */
 }
+/*DropDown Ends Here*/
 
 /* This is For the Go Button */
 
@@ -302,6 +325,7 @@ nav {
     background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
 }
+/*Animated Button Ends Here*/
 
 /* This is for the cards*/
 
@@ -445,6 +469,8 @@ nav {
   }
 }
 
+/*Cards Ends Here*/
+
 /*This is For Footer*/
 
 #footer {
@@ -460,3 +486,5 @@ nav {
   font-size: 0.8rem;
   color: gray;
 }
+
+/*Footer Ends Here*/

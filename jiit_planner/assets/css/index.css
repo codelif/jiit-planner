@@ -53,9 +53,15 @@ nav {
 .nav-links li a {
   text-decoration: none;
   margin: 0 0.7vw;
+  color: #f2f5f7; /* Ensure the default color is set */
+  -webkit-transition: #61dafb 0.3s ease; /* For Safari and older Chrome */
+  -moz-transition: #61dafb 0.3s ease; /* For older Firefox */
+  -o-transition: #61dafb 0.3s ease; /* For older Opera */
+  transition: #61dafb 0.3s ease; /* Standard syntax */
 }
+
 .nav-links li a:hover {
-  color: #61dafb;
+  color: #61dafb; /* Change color on hover */
 }
 .nav-links li {
   position: relative;
@@ -167,9 +173,9 @@ nav {
   display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
   justify-content: center;
   align-items: center;
-  height: 75vh;
+  height: 30vh;
   background-color: rgba(20, 182, 222, 0.5);
-  padding: 20px; /* Adjusted padding */
+  padding: 20rem; /* Adjusted padding */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(165, 31, 31, 0.1);
   flex-direction: column;
@@ -218,17 +224,17 @@ nav {
   text-align: center; /* Center align text inside options */
   font-size: 1.25rem; /* Increased font size by 25% */
 }
+
 /*DropDown Ends Here*/
 
 /* This is For the Go Button */
 
 .bubbly-button {
-  font-family: "Helvetica", "Arial", sans-serif;
   display: inline-block;
-  font-size: 1em;
-  padding: 1em 2em;
-  margin-top: 200px;
-  margin-bottom: 60px;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
   -webkit-appearance: none;
   appearance: none;
   background-color: #ff0081;
@@ -475,16 +481,37 @@ nav {
 
 #footer {
   padding-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  display: -webkit-box; /* For older iOS and Android browsers */
+  display: -ms-flexbox; /* For IE 10 */
+  display: flex; /* Standard syntax */
+  -webkit-box-orient: vertical; /* For older iOS and Android browsers */
+  -webkit-box-direction: normal; /* For older iOS and Android browsers */
+  -ms-flex-direction: column; /* For IE 10 */
+  flex-direction: column; /* Standard syntax */
+  -webkit-box-pack: justify; /* For older iOS and Android browsers */
+  -ms-flex-pack: distribute; /* For IE 10 */
+  justify-content: space-evenly; /* Standard syntax */
 }
+
 #footer > p {
   text-align: center;
+  margin: 0; /* Add margin to ensure consistency */
 }
+
 #footer > p:last-child {
   font-size: 0.8rem;
   color: gray;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 600px) {
+  #footer {
+    padding-bottom: 20px; /* Increase padding for smaller screens */
+  }
+
+  #footer > p:last-child {
+    font-size: 0.7rem; /* Adjust font size for smaller screens */
+  }
 }
 
 /*Footer Ends Here*/

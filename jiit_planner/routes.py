@@ -23,7 +23,8 @@ def planner():
 
 
     events, batches = filter_events(branch, batch, day)
-    branches = {"btech-sem1":"B.Tech Semester 1", "bca-sem1": "BCA Semester 1", "bca-sem3": "BCA Semester 3"}
+    # branches = {"btech-sem1":"B.Tech Semester 1", "bca-sem1": "BCA Semester 1", "bca-sem3": "BCA Semester 3"}
+    branches = {"btech-sem1":"B.Tech Semester 1", "bca-sem1": "BCA Semester 1"}
 
 
     if (batch is None):

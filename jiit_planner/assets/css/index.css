@@ -165,18 +165,212 @@ nav {
 
 /* This is for the dropdown menu */
 
-div.container {
-  font-family: "Arial", sans-serif;
-  background: linear-gradient(to right, #f39c12, #e74c3c, #8e44ad);
+/* Container */
+.container {
   display: flex;
   justify-content: center;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  height: 50rem;
+  flex-direction: column;
   align-items: center;
-  height: 55rem;
 }
 
-/*DropDown Ends Here*/
+/* Form */
+.custom-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 16rem;
+  height: 20rem;
+  padding: 20px;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
 
-/* This is For the Go Button */
+/* Form Hover Effect */
+.custom-form:hover {
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.7); /* Darker shadow on hover */
+  transform: scale(1.01); /* Slight scale-up for fancy effect */
+}
+
+/* Dropdown Menu Container */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 20rem;
+  margin: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Dropdown Button */
+.dropdown-btn {
+  background-color: #6ec1e4;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-btn:after {
+  content: "\25BC";
+  float: right;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #6ec1e4;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #4f9ec1;
+}
+
+/* Show Dropdown */
+.show {
+  display: block;
+}
+
+/* Button */
+.beautiful-btn {
+  margin-top: 5rem;
+  background: linear-gradient(to right, #f79d00, #64f38c);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beautiful-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.beautiful-btn:active {
+  transform: translateY(-2px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+
+/* Small phones (portrait) */
+@media (max-width: 320px) {
+  .custom-form {
+    width: 14rem;
+    height: 18rem;
+  }
+
+  .custom-dropdown {
+    width: 18rem;
+  }
+
+  .dropdown-btn {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .beautiful-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small to medium phones (portrait) */
+@media (min-width: 321px) and (max-width: 480px) {
+  .custom-form {
+    width: 15rem;
+    height: 19rem;
+  }
+
+  .custom-dropdown {
+    width: 19rem;
+  }
+
+  .dropdown-btn {
+    font-size: 15px;
+    padding: 9px;
+  }
+
+  .beautiful-btn {
+    padding: 12px 25px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Medium to large phones (portrait) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .custom-form {
+    width: 16rem;
+    height: 20rem;
+  }
+
+  .custom-dropdown {
+    width: 20rem;
+  }
+
+  .dropdown-btn {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .beautiful-btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+  }
+}
+
+/* Tablets (portrait) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .custom-form {
+    width: 18rem;
+    height: 22rem;
+  }
+
+  .custom-dropdown {
+    width: 22rem;
+  }
+
+  .dropdown-btn {
+    font-size: 17px;
+    padding: 12px;
+  }
+
+  .beautiful-btn {
+    padding: 18px 35px;
+    font-size: 1.05rem;
+  }
+}
+/*DropDown Ends Here*/
 
 /* This is for the cards*/
 

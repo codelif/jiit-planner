@@ -53,12 +53,80 @@
       <ul class="nav-links">
         <li><a href="">Home</a></li>
         <li><a href="">About Us</a></li>
-        <li><a href="mailto:harsh@codelif.in?cc=john.rambo.9901@gmail.com&subject=Facing%Issue">Contact Us</a></li>
+        <li>
+          <a
+            href="mailto:harsh@codelif.in?cc=john.rambo.9901@gmail.com&subject=Facing%Issue"
+            >Contact Us</a
+          >
+        </li>
       </ul>
     </nav>
     <div class="container">
-      
+      <fieldset class="custom-form">
+        <div class="custom-dropdown">
+          <button
+            class="dropdown-btn"
+            onclick="toggleDropdown('dropdown1', this)"
+            type="button"
+          >
+            Course
+          </button>
+          <div class="dropdown-content" id="dropdown1">
+            <a href="#" onclick="selectOption(event, 'Option 1', this)"
+              >Option 1</a
+            >
+            <a href="#" onclick="selectOption(event, 'Option 2', this)"
+              >Option 2</a
+            >
+            <a href="#" onclick="selectOption(event, 'Option 3', this)"
+              >Option 3</a
+            >
+          </div>
+        </div>
+        <div class="custom-dropdown">
+          <button
+            class="dropdown-btn"
+            onclick="toggleDropdown('dropdown2', this)"
+            type="button"
+          >
+            Batch
+          </button>
+          <div class="dropdown-content" id="dropdown2">
+            <a href="#" onclick="selectOption(event, 'Option A', this)"
+              >Option A</a
+            >
+            <a href="#" onclick="selectOption(event, 'Option B', this)"
+              >Option B</a
+            >
+            <a href="#" onclick="selectOption(event, 'Option C', this)"
+              >Option C</a
+            >
+          </div>
+        </div>
+        <div class="custom-dropdown">
+          <button
+            class="dropdown-btn"
+            onclick="toggleDropdown('dropdown3', this)"
+            type="button"
+          >
+            Day
+          </button>
+          <div class="dropdown-content" id="dropdown3">
+            <a href="#" onclick="selectOption(event, 'Choice X', this)"
+              >Choice X</a
+            >
+            <a href="#" onclick="selectOption(event, 'Choice Y', this)"
+              >Choice Y</a
+            >
+            <a href="#" onclick="selectOption(event, 'Choice Z', this)"
+              >Choice Z</a
+            >
+          </div>
+        </div>
+        <button type="submit" class="beautiful-btn">Click Me!</button>
+      </fieldset>
     </div>
+
     <div class="ag-format-container">
       <div class="ag-courses_box">
         <div class="ag-courses_item">

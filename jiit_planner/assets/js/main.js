@@ -1,3 +1,32 @@
+// The Dropdown JS
+
+function toggleDropdown(id, button) {
+  document.querySelectorAll(".dropdown-content").forEach(function (content) {
+    if (content.id !== id) {
+      content.classList.remove("show");
+    }
+  });
+
+  var dropdown = document.getElementById(id);
+  dropdown.classList.toggle("show");
+}
+
+window.onclick = function (event) {
+  if (!event.target.matches(".dropdown-btn")) {
+    document.querySelectorAll(".dropdown-content").forEach(function (content) {
+      content.classList.remove("show");
+    });
+  }
+};
+
+function selectOption(event, option, link) {
+  event.preventDefault();
+  var button = link.closest(".custom-dropdown").querySelector(".dropdown-btn");
+  button.innerHTML = option;
+}
+
+// The Navigation JS for responsive
+
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 const links = document.querySelectorAll(".nav-links li");
@@ -8,6 +37,8 @@ hamburger.addEventListener("click", () => {
   });
   hamburger.classList.toggle("toggle");
 });
+
+// The Data Fetching Code
 
 let params = new URL(document.location.toString()).searchParams;
 let batch = params.get("b");

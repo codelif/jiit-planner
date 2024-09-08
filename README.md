@@ -13,6 +13,7 @@ poetry run flask --app jiit_planner run
 
 ## Roadmap
  - [x] Make the UI uglier
+ - [x] Make website remember last used batch and stream via `localStorage`
  - [ ] Add support for multiple semesters
  - [ ] Add support for multiple streams (BCA, BBA, etc)
  - [ ] Fix [`jiit-tt-parser`](https://github.com/codelif/jiit-tt-parser)

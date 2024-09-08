@@ -2,7 +2,7 @@
 Quickly view your upcoming events(lectures, tutorial, etc) at JIIT
 
 ## Try it out (in beta)
-Visit https://planner.codelif.in/B5 (here replace B5 with your batch) 
+Visit https://planner.codelif.in
 
 ## Development deployment
 Clone this repository and cd into it then enter the following commands.
